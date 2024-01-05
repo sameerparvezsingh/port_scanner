@@ -3,7 +3,7 @@ import sys, time
 from datetime import datetime
 
 host = ''
-max_port = 5000
+max_port = 55
 min_port = 50
 
 def scan_host(host, port, r_code=1):
@@ -21,7 +21,7 @@ def scan_host(host, port, r_code=1):
     return r_code
 
 try:
-    host = input("[*] Enter target host address: *")
+    host = input("[*] Enter target host address: ")
 except KeyboardInterrupt:
     print("[*] Interupt detected. Exiting program.")
     sys.exit(1)
@@ -37,5 +37,9 @@ for port in range(min_port, max_port):
 
         if response == 0:
             print(f"Port: {port} status = open")
+        else:
+            print(f"Port: {port}, No reponse")
     except Exception as e:
         print(f"The error is: {e}")
+
+print(f"**Scanning Ended.**")
