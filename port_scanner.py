@@ -3,14 +3,14 @@ import sys, time
 from datetime import datetime
 
 host = ''
-max_port = 5
-min_port = 1
+max_port = 5000
+min_port = 50
 
-def scan_host(host, port, r_code):
+def scan_host(host, port, r_code=1):
     try:
         s = socket(AF_INET, SOCK_STREAM) #using OS scoket function to connect to intended target
 
-        connection = s.connect_ex(host, port)
+        connection = s.connect_ex((host, port))
 
         if connection==0:
             r_code = connection
